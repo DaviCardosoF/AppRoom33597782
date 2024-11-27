@@ -30,5 +30,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Inventory"
+rootProject.name = "rgm33597782"
 include(":app")

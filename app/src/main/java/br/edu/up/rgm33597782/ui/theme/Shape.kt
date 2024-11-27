@@ -13,16 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package br.edu.up.rgm33597782.ui.theme
 
-package com.example.inventory.data
+import androidx.compose.foundation.shape.CutCornerShape
+import androidx.compose.material3.Shapes
+import androidx.compose.ui.unit.dp
 
+val Shapes = Shapes(
 
-/**
- * Entity data class represents a single row in the database.
- */
-class Item(
-    val id: Int = 0,
-    val name: String,
-    val price: Double,
-    val quantity: Int
+    extraSmall = CutCornerShape(topEnd = 8.dp, bottomStart = 8.dp),
+    small = CutCornerShape(topEnd = 8.dp, bottomStart = 8.dp),
+    medium = CutCornerShape(topEnd = 16.dp, bottomStart = 16.dp)
 )

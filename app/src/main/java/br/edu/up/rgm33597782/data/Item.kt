@@ -14,9 +14,15 @@
  * limitations under the License.
  */
 
-package com.example.inventory.data
+package br.edu.up.rgm33597782.data
+
 
 /**
- * Repository that provides insert, update, delete, and retrieve of [Item] from a given data source.
+ * Entity data class represents a single row in the database.
  */
-interface ItemsRepository
+class Item(
+    val id: Int = 0,
+    val name: String,
+    val price: Double,
+    val quantity: Int
+)

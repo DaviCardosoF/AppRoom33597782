@@ -14,25 +14,21 @@
  * limitations under the License.
  */
 
-package com.example.inventory.data
+package br.edu.up.rgm33597782.ui.home
 
-import android.content.Context
-
-/**
- * App container for Dependency injection.
- */
-interface AppContainer {
-    val itemsRepository: ItemsRepository
-}
+import androidx.lifecycle.ViewModel
+import br.edu.up.rgm33597782.data.Item
 
 /**
- * [AppContainer] implementation that provides instance of [OfflineItemsRepository]
+ * ViewModel to retrieve all items in the Room database.
  */
-class AppDataContainer(private val context: Context) : AppContainer {
-    /**
-     * Implementation for [ItemsRepository]
-     */
-    override val itemsRepository: ItemsRepository by lazy {
-        OfflineItemsRepository()
+class HomeViewModel : ViewModel() {
+    companion object {
+        private const val TIMEOUT_MILLIS = 5_000L
     }
 }
+
+/**
+ * Ui State for HomeScreen
+ */
+data class HomeUiState(val itemList: List<Item> = listOf())

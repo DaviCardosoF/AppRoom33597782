@@ -15,5 +15,5 @@
   ~ limitations under the License.
   -->
 <resources>
-    <style name="Theme.Inventory" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.rgm33597782" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

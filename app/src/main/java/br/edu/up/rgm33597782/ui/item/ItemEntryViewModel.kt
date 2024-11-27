@@ -22,11 +22,11 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import br.edu.up.rgm33597782.data.Item
 import java.text.NumberFormat
-
+import br.edu.up.rgm33597782.data.ItemsRepository
 /**
  * ViewModel to validate and insert items in the Room database.
  */
-class ItemEntryViewModel : ViewModel() {
+class ItemEntryViewModel(private val itemsRepository: ItemsRepository) : ViewModel() {
 
     /**
      * Holds current item ui state
@@ -46,6 +46,12 @@ class ItemEntryViewModel : ViewModel() {
     private fun validateInput(uiState: ItemDetails = itemUiState.itemDetails): Boolean {
         return with(uiState) {
             name.isNotBlank() && price.isNotBlank() && quantity.isNotBlank()
+        }
+    }
+
+    suspend fun saveItem() {
+        if (validateInput()) {
+            itemsRepository.insertItem(itemUiState.itemDetails.toItem())
         }
     }
 }
@@ -97,4 +103,7 @@ fun Item.toItemDetails(): ItemDetails = ItemDetails(
     name = name,
     price = price.toString(),
     quantity = quantity.toString()
+
+
+
 )
